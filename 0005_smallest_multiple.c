@@ -20,10 +20,10 @@ int check_if_divisible(int a){
 }
 
 int main(void) {
-   int i = 20;
+   int i = 1*2*3*5*7*10*11*13*17*19;
 
    while(check_if_divisible(i) == 0){
-      i++;
+      i = i+2;
    }
 
    printf("Number found: %d\n", i);
