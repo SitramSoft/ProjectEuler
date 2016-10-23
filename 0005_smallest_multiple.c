@@ -23,7 +23,7 @@ int main(void) {
    int i = 1*2*3*5*7*10*11*13*17*19;
 
    while(check_if_divisible(i) == 0){
-      i = i+2;
+      i = i+10;
    }
 
    printf("Number found: %d\n", i);
