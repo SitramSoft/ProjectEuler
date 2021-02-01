@@ -1,5 +1,8 @@
 #include <stdio.h>
-
+#include "config.h"
+#ifdef TIME_MEASUREMENT
+#include <time.h>
+#endif
 
 char initialString[1000] = "\
 73167176531330624919225119674426574742355349194934\
@@ -24,8 +27,18 @@ char initialString[1000] = "\
 71636269561882670428252483600823257530420752963450";
 
 int main(){
+#ifdef TIME_MEASUREMENT
+    struct timespec start, end;
+	long long delta_ms, delta_s, delta_us;
+#endif
+
    int i, j;
    unsigned long sum = 1, sumMax = 0;
+
+#ifdef TIME_MEASUREMENT	
+	clock_gettime(CLOCK_MONOTONIC, &start);
+    /* Insert code below for measurement*/
+#endif
 
    for (i = 0; i < (1000 - 12); i++){
       sum = 1;
@@ -42,5 +55,16 @@ int main(){
    }
 
    printf("The gratest product of the thirteen adjacent digits in the 1000-digit number is %lu\n", sumMax);
+
+#ifdef TIME_MEASUREMENT	
+    /* End code measurement */
+
+    clock_gettime(CLOCK_MONOTONIC, &end);
+	delta_s = end.tv_sec - start.tv_sec;
+	delta_ms = (end.tv_sec - start.tv_sec) * 1000 + (end.tv_nsec - start.tv_nsec) / 1000000;
+	delta_us = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_nsec - start.tv_nsec) / 1000;
+
+    printf("\n\nExecution time:\n%lld s\n%lld ms\n%lld us\n\n", delta_s, delta_ms, delta_us);
+#endif
    return 0;
 }
