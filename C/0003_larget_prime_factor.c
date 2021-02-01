@@ -13,7 +13,7 @@ int main (void){
 	long long delta_ms, delta_s, delta_us;
 #endif
 
-   unsigned long int contor1, contor2, start;
+   unsigned long int contor1, contor2, number;
    int flag, found_prime = 0;
 
 #ifdef TIME_MEASUREMENT	
@@ -21,9 +21,9 @@ int main (void){
     /* Insert code below for measurement*/
 #endif
 
-   start = (unsigned long)sqrt(NUMBER);
+   number = (unsigned long)sqrt(NUMBER);
 
-   for (contor1 = start; contor1 > 1 && found_prime == 0; contor1--){
+   for (contor1 = number; contor1 > 1 && found_prime == 0; contor1--){
       //Is this number a divisor?
       if (NUMBER % contor1 == 0){
          flag = 0;
