@@ -2,7 +2,7 @@ CC :=gcc
 CFLAGS :=
 LDFLAGS :=-lm
 C_EXECUTABLE :=$(C_SOURCES:.c=)
-ALL_TARGETS := 0001 0002 0003 0004 0005 0006 0007 0008 0009 0010 0011 0012 0013 0014 template
+ALL_TARGETS := 0001 0002 0003 0004 0005 0006 0007 0008 0009 0010 0011 0012 0013 0014 0015 template
  
 all: $(ALL_TARGETS)
 
@@ -46,6 +46,9 @@ all: $(ALL_TARGETS)
 	$(CC) $< -Wall -lm -o $@
 
 0014:0014_longest_collatz_sequence.c
+	$(CC) $< -Wall -lm -o $@
+
+0015:0015_lattice_paths.c
 	$(CC) $< -Wall -lm -o $@
 
 template: c_program_template.c
